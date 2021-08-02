@@ -1,6 +1,6 @@
 <template lang="pug">
-.container
+.cotainer
   .row
     .col-12
-      | this is a test
+      | Hello World
 </template>

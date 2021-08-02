@@ -1834,6 +1834,27 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./resources/js/app.js":
+/*!*****************************!*\
+  !*** ./resources/js/app.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+
+
+var app = new vue__WEBPACK_IMPORTED_MODULE_1__.default({
+  el: "#app",
+  router: _router__WEBPACK_IMPORTED_MODULE_0__.default
+});
+
+/***/ }),
+
 /***/ "./resources/js/bootstrap.js":
 /*!***********************************!*\
   !*** ./resources/js/bootstrap.js ***!
@@ -34466,6 +34487,16 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
+/***/ "./resources/sass/main.scss":
+/*!**********************************!*\
+  !*** ./resources/sass/main.scss ***!
+  \**********************************/
+/***/ (() => {
+
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Can't find stylesheet to import.\n  ╷\n6 │ @import 'bootstrap/functions';\n  │         ^^^^^^^^^^^^^^^^^^^^^\n  ╵\n  /Users/apple/Documents/GitHub/playground/resources/sass/main.scss 6:9  root stylesheet\n    at processResult (/Users/apple/Documents/GitHub/playground/node_modules/webpack/lib/NormalModule.js:703:19)\n    at /Users/apple/Documents/GitHub/playground/node_modules/webpack/lib/NormalModule.js:809:5\n    at /Users/apple/Documents/GitHub/playground/node_modules/loader-runner/lib/LoaderRunner.js:399:11\n    at /Users/apple/Documents/GitHub/playground/node_modules/loader-runner/lib/LoaderRunner.js:251:18\n    at context.callback (/Users/apple/Documents/GitHub/playground/node_modules/loader-runner/lib/LoaderRunner.js:124:13)\n    at /Users/apple/Documents/GitHub/playground/node_modules/sass-loader/dist/index.js:73:7\n    at Function.call$2 (/Users/apple/Documents/GitHub/playground/node_modules/sass/sass.dart.js:93603:16)\n    at _render_closure1.call$2 (/Users/apple/Documents/GitHub/playground/node_modules/sass/sass.dart.js:81980:12)\n    at _RootZone.runBinary$3$3 (/Users/apple/Documents/GitHub/playground/node_modules/sass/sass.dart.js:27536:18)\n    at _FutureListener.handleError$1 (/Users/apple/Documents/GitHub/playground/node_modules/sass/sass.dart.js:26085:19)\n    at _Future__propagateToListeners_handleError.call$0 (/Users/apple/Documents/GitHub/playground/node_modules/sass/sass.dart.js:26383:49)\n    at Object._Future__propagateToListeners (/Users/apple/Documents/GitHub/playground/node_modules/sass/sass.dart.js:4550:77)\n    at _Future._completeError$2 (/Users/apple/Documents/GitHub/playground/node_modules/sass/sass.dart.js:26215:9)\n    at _AsyncAwaitCompleter.completeError$2 (/Users/apple/Documents/GitHub/playground/node_modules/sass/sass.dart.js:25869:12)\n    at Object._asyncRethrow (/Users/apple/Documents/GitHub/playground/node_modules/sass/sass.dart.js:4349:17)\n    at /Users/apple/Documents/GitHub/playground/node_modules/sass/sass.dart.js:12864:20");
+
+/***/ }),
+
 /***/ "./node_modules/popper.js/dist/esm/popper.js":
 /*!***************************************************!*\
   !*** ./node_modules/popper.js/dist/esm/popper.js ***!
@@ -52777,25 +52808,12 @@ Vue.compile = compileToFunctions;
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
-(() => {
-"use strict";
-/*!*****************************!*\
-  !*** ./resources/js/app.js ***!
-  \*****************************/
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-
-
-
-var app = new vue__WEBPACK_IMPORTED_MODULE_1__.default({
-  el: "#app",
-  router: _router__WEBPACK_IMPORTED_MODULE_0__.default
-});
-})();
-
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	__webpack_require__("./resources/js/app.js");
+/******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
+/******/ 	var __webpack_exports__ = __webpack_require__("./resources/sass/main.scss");
+/******/ 	
 /******/ })()
 ;
