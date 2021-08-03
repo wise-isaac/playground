@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class TaskListController extends Controller
@@ -13,7 +14,8 @@ class TaskListController extends Controller
      */
     public function index()
     {
-        //
+        $data = Task::all();
+        return response()->json($data, 200);
     }
 
     /**
@@ -34,7 +36,13 @@ class TaskListController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $task = (new Task())->create([
+            'description' => $request->description,
+        ]);
+        return response()->json(
+            ['message' => 'Task created'],
+            201
+        );
     }
 
     /**

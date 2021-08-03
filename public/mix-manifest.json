@@ -1,3 +1,5 @@
 {
-    "/js/playground/app.app.js": "/js/playground/app.app.js"
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/css/custom.css": "/css/custom.css"
 }

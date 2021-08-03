@@ -1,9 +1,31 @@
 require('./bootstrap');
 
-import Vue from "vue";
-import router from "./router"
+import { createApp, h } from 'vue';
+import { createInertiaApp } from '@inertiajs/inertia-vue3';
+import { InertiaProgress } from '@inertiajs/progress';
 
-const app = new Vue({
-    el: "#app",
-    router,
+const Swal = require('sweetalert2').default
+
+window.Toast = Swal.mixin({
+    toast: true,
+    position: 'top-right',
+    timer: 3000,
+    timerProgressBar: true,
 })
+
+const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
+
+createInertiaApp({
+    title: (title) => `${title} - ${appName}`,
+    resolve: (name) => require(`./Pages/${name}.vue`),
+    setup({ el, app, props, plugin }) {
+        return createApp({ render: () => h(app, props) })
+            .use(plugin)
+            .mixin({ methods: { route } })
+            .mount(el);
+    },
+});
+
+InertiaProgress.init({ color: '#4B5563' });
+
+
