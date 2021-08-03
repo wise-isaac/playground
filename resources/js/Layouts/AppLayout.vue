@@ -25,12 +25,24 @@
                 >
                   Dashboard
                 </jet-nav-link>
+                <!-- <jet-nav-link
+                  :href="route('marketplace')"
+                  :active="route().current('marketplace')"
+                >
+                  Marketplace
+                </jet-nav-link> -->
                 <jet-nav-link
                   :href="route('task-list')"
                   :active="route().current('task-list')"
                 >
                   Task List
                 </jet-nav-link>
+                <!-- <jet-nav-link
+                  :href="route('random-facts')"
+                  :active="route().current('random-facts')"
+                >
+                  Random Facts
+                </jet-nav-link> -->
               </div>
             </div>
 

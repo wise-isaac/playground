@@ -64,10 +64,14 @@
               v-for="(data, key) in tasks"
               :key="key"
             >
-              <p class="w-full text-grey-darkest">
+              <p
+                class="w-full text-grey-darkest"
+                :class="{ completed: data.completed === 1 }"
+              >
                 {{ data.description }}
               </p>
               <button
+                v-show="data.completed === 0"
                 class="
                   bg-transparent
                   hover:bg-green-500
@@ -80,6 +84,7 @@
                   hover:border-transparent
                   rounded
                 "
+                @click="updateTask(data.id, { completed: 1 })"
               >
                 Done
               </button>
@@ -97,6 +102,7 @@
                   hover:border-transparent
                   rounded
                 "
+                @click="destroyTask(data.id)"
               >
                 Remove
               </button>
@@ -131,7 +137,6 @@ export default {
         this.getTasks();
         this.task.description = "";
       });
-
       if (res.status === 201) {
         Toast.fire({
           icon: "success",
@@ -149,6 +154,21 @@ export default {
           console.log(err);
         });
     },
+    async updateTask(id, data) {
+      await axios.patch("/api/task-list/" + id, data).then((res) => {
+        this.getTasks();
+      });
+    },
+    async destroyTask(id) {
+      await axios.delete("/api/task-list/" + id).then((res) => {
+        this.getTasks();
+      });
+    },
   },
 };
 </script>
+<style scoped>
+.completed {
+  text-decoration: line-through;
+}
+</style>

@@ -15,19 +15,31 @@ use Inertia\Inertia;
 |
 */
 
+// Route::get('/', function () {
+//     return Inertia::render('Welcome', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
+
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return Inertia::render('Auth/Register');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/marketplace', function () {
+    return Inertia::render('Marketplace/Marketplace');
+})->name('marketplace');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/task-list', function () {
     return Inertia::render('TaskList');
 })->name('task-list');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/random-facts', function () {
+    return Inertia::render('RandomFacts');
+})->name('random-facts');
