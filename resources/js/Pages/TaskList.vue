@@ -22,6 +22,8 @@
           <div class="mb-4">
             <div class="flex mt-4">
               <input
+                type="text"
+                name="Task description"
                 class="
                   shadow
                   appearance-none
@@ -31,12 +33,13 @@
                   py-2
                   px-3
                   mr-4
-                  text-grey-darker
+                  text-grey-lighter
                 "
                 :placeholder="'Add Task'"
-                v-model="task.name"
+                v-model="task.description"
               />
               <button
+                type="button"
                 class="
                   bg-transparent
                   hover:bg-blue-500
@@ -49,6 +52,7 @@
                   hover:border-transparent
                   rounded
                 "
+                @click="addTask"
               >
                 Add
               </button>
@@ -57,11 +61,11 @@
           <div>
             <div
               class="flex mb-4 items-center"
-              v-for="(task, key) in tasks"
+              v-for="(data, key) in tasks"
               :key="key"
             >
               <p class="w-full text-grey-darkest">
-                Add another component to Tailwind Components
+                {{ data.description }}
               </p>
               <button
                 class="
@@ -112,14 +116,39 @@ export default {
   },
   data: function () {
     return {
+      tasks: [],
       task: {
-        name: "",
+        description: "",
       },
-      tasks: {},
     };
   },
+  mounted() {
+    this.getTasks();
+  },
   methods: {
-    store() {},
+    async addTask() {
+      const res = await axios.post("/api/task-list", this.task).then((res) => {
+        this.getTasks();
+        this.task.description = "";
+      });
+
+      if (res.status === 201) {
+        Toast.fire({
+          icon: "success",
+          title: res.data,
+        });
+      }
+    },
+    async getTasks() {
+      axios
+        .get("/api/task-list")
+        .then((res) => {
+          this.tasks = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
 };
 </script>

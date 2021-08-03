@@ -28,6 +28,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
-Route::get('/task-list', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/task-list', function () {
     return Inertia::render('TaskList');
 })->name('task-list');

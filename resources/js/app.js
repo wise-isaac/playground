@@ -1,10 +1,17 @@
 require('./bootstrap');
 
-import Vue from 'vue';
-import Vuex from 'vuex';
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
+
+const Swal = require('sweetalert2').default
+
+window.Toast = Swal.mixin({
+    toast: true,
+    position: 'top-right',
+    timer: 3000,
+    timerProgressBar: true,
+})
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
@@ -21,12 +28,4 @@ createInertiaApp({
 
 InertiaProgress.init({ color: '#4B5563' });
 
-import { tasklist } from "./Pages/TaskList/store-module";
 
-Vue.use(Vuex)
-
-export default new Vuex.Store({
-    modules: {
-        tasklist: tasklist,
-    }
-})

@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
     <Head title="Log in" />
 
     <jet-authentication-card>
