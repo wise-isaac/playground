@@ -36,10 +36,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/marketplace', function ()
     return Inertia::render('Marketplace/Marketplace');
 })->name('marketplace');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/marketplace/new-product', function () {
+    return Inertia::render('Marketplace/Components/Form');
+})->name('marketplace/new-product');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/task-list', function () {
     return Inertia::render('TaskList');
 })->name('task-list');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/random-facts', function () {
-    return Inertia::render('RandomFacts');
-})->name('random-facts');
