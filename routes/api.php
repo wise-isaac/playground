@@ -19,3 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('task-list', 'App\Http\Controllers\TaskListController');
+
+Route::prefix('marketplace')->group(function () {
+    Route::apiResource('new-product', 'App\Http\Controllers\MarketplaceController');
+});
